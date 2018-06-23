@@ -1,0 +1,4 @@
+services:
+#    magma_app.example:
+#        class: MAGMA\AppBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

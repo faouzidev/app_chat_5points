@@ -1,0 +1,197 @@
+<?php
+
+namespace MAGMA\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Equipement
+ *
+ * @ORM\Table(name="equipement")
+ * @ORM\Entity(repositoryClass="MAGMA\AppBundle\Repository\EquipementRepository")
+ */
+class Equipement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id=0;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="identifiant", type="string", length=255)
+     */
+    private $identifiant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ip", type="string", length=255, nullable=true)
+     */
+    private $ip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="marque", type="integer", nullable=true)
+     */
+    private $marque;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=true)
+     */
+    private $etat;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set identifiant
+     *
+     * @param string $identifiant
+     *
+     * @return Equipement
+     */
+    public function setIdentifiant($identifiant)
+    {
+        $this->identifiant = $identifiant;
+
+        return $this;
+    }
+
+    /**
+     * Get identifiant
+     *
+     * @return string
+     */
+    public function getIdentifiant()
+    {
+        return $this->identifiant;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Equipement
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     *
+     * @return Equipement
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Equipement
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set marque
+     *
+     * @param integer $marque
+     *
+     * @return Equipement
+     */
+    public function setMarque($marque)
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * Get marque
+     *
+     * @return int
+     */
+    public function getMarque()
+    {
+        return $this->marque;
+    }
+}
+

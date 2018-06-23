@@ -1,0 +1,217 @@
+<?php
+
+namespace MAGMA\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Alert
+ *
+ * @ORM\Table(name="alert")
+ * @ORM\Entity(repositoryClass="MAGMA\AppBundle\Repository\AlertRepository")
+ */
+class Alert {
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="periorite", type="integer", nullable=true)
+     */
+    private $periorite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observation", type="string", length=255, nullable=true)
+     */
+    private $observation;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="vue", type="boolean", nullable=true)
+     */
+    private $vue = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="traitement", type="integer", nullable=true)
+     */
+    private $traitement;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MAGMA\AppBundle\Entity\Equipement")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $equipement;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MAGMA\AppBundle\Entity\User")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $agent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=true)
+     */
+    private $date;
+
+    public function __construct() {
+        $this->equipement = new Equipement();
+        $this->agent = new User();
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * Set periorite
+     *
+     * @param integer $periorite
+     *
+     * @return Alert
+     */
+    public function setPeriorite($periorite) {
+        $this->periorite = $periorite;
+
+        return $this;
+    }
+
+    /**
+     * Get periorite
+     *
+     * @return int
+     */
+    public function getPeriorite() {
+        return $this->periorite;
+    }
+
+    /**
+     * Set observation
+     *
+     * @param string $observation
+     *
+     * @return Alert
+     */
+    public function setObservation($observation) {
+        $this->observation = $observation;
+
+        return $this;
+    }
+
+    /**
+     * Get observation
+     *
+     * @return string
+     */
+    public function getObservation() {
+        return $this->observation;
+    }
+
+    /**
+     * Set vue
+     *
+     * @param boolean $vue
+     *
+     * @return Alert
+     */
+    public function setVue($vue) {
+        $this->vue = $vue;
+
+        return $this;
+    }
+
+    /**
+     * Get vue
+     *
+     * @return bool
+     */
+    public function getVue() {
+        return $this->vue;
+    }
+
+    /**
+     * Set traitement
+     *
+     * @param integer $traitement
+     *
+     * @return Alert
+     */
+    public function setTraitement($traitement) {
+        $this->traitement = $traitement;
+
+        return $this;
+    }
+
+    /**
+     * Get traitement
+     *
+     * @return int
+     */
+    public function getTraitement() {
+        return $this->traitement;
+    }
+
+    /**
+     * Set equipement
+     *
+     * @param \MAGMA\AppBundle\Entity\Equipement $equipement
+     *
+     * @return Alert
+     */
+    public function setEquipement(\MAGMA\AppBundle\Entity\Equipement $equipement = null) {
+        $this->equipement = $equipement;
+
+        return $this;
+    }
+
+    /**
+     * Get equipement
+     *
+     * @return \MAGMA\AppBundle\Entity\Equipement
+     */
+    public function getEquipement() {
+        return $this->equipement;
+    }
+
+    /**
+     * Set agent
+     *
+     * @param \MAGMA\AppBundle\Entity\User $agent
+     *
+     * @return Alert
+     */
+    public function setAgent(\MAGMA\AppBundle\Entity\User $agent = null) {
+        $this->agent = $agent;
+
+        return $this;
+    }
+
+    /**
+     * Get agent
+     *
+     * @return \MAGMA\AppBundle\Entity\User
+     */
+    public function getAgent() {
+        return $this->agent;
+    }
+
+}
